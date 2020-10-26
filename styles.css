@@ -1,0 +1,29 @@
+#button {
+    background-color: #e8e8e8; 
+    border: 3px solid black; 
+    padding: 8px 20px; 
+    border-radius: 5px; 
+    margin: 5px; 
+    font-size: 20px;
+    float: left; 
+}
+.menu li {
+    display: inline;
+}
+
+a {
+    color: black;
+    
+}
+#link:hover { 
+    color: #aa0700; 
+    background-color: #aaaaaa;
+    margin-top: -2;
+    padding-bottom: 12px;
+} 
+
+.upper {
+    background-color: #e8e8e8;
+    border: 3px solid black;
+    border-radius: 5px;
+}
