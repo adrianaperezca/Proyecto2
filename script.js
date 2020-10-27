@@ -1,21 +1,24 @@
 const path = require('path')
-
+const bodyParser = require('body-parser')
 const {MongoClient}  = require('mongodb');
 const express = require('express')
+const mongoose = require('mongoose');
+
 
 const app = new express();
 
+//body-parser
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
+
 async function main(){
     
-    /**
-     * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-     * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
-     */
     const uri = "mongodb+srv://AdrianaPerez:Caribe2011*@clustercv.sym5l.mongodb.net/<dbname>?retryWrites=true&w=majority"
 
     const client = new MongoClient(uri);
  
     try {
+        document.getElementById("infoNombre").innerHTML = "Hola mundo"; 
         // Connect to the MongoDB cluster
         await client.connect();
  
@@ -23,6 +26,7 @@ async function main(){
         await  listDatabases(client);
 
         await findOneListingByName(client, "infopers");
+        document.getElementById('infoNombre').innerHTML = result['Nombre'];
  
     } catch (e) {
         console.error(e);
@@ -60,6 +64,9 @@ async function findOneListingByName(client, nameOfListing) {
     if (result) {
         console.log(`Found a listing in the collection with the name '${nameOfListing}':`);
         console.log(result);
+        console.log(result['correo']);
+        document.getElementById('infoNombre').innerHTML = result['Nombre'];        
+
     } else {
         console.log(`No listings found with the name '${nameOfListing}'`);
     }
