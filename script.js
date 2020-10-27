@@ -32,7 +32,7 @@ async function main(){
 }
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "index.html"))
+    res.sendFile(path.resolve(__dirname, 'index.html'))
 })
 
 app.listen(4000, ()=>{
