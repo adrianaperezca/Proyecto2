@@ -2,48 +2,59 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const {MongoClient}  = require('mongodb');
 const express = require('express')
-const mongoose = require('mongoose');
-
 
 const app = new express();
 
 //body-parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
-
-async function main(){
     
-    const uri = "mongodb+srv://AdrianaPerez:Caribe2011*@clustercv.sym5l.mongodb.net/<dbname>?retryWrites=true&w=majority"
+const uri = "mongodb+srv://AdrianaPerez:Caribe2011*@clustercv.sym5l.mongodb.net/<dbname>?retryWrites=true&w=majority"
 
-    const client = new MongoClient(uri);
- 
-    try {
-        document.getElementById("infoNombre").innerHTML = "Hola mundo"; 
-        // Connect to the MongoDB cluster
-        await client.connect();
- 
-        // Make the appropriate DB calls
-        await  listDatabases(client);
+MongoClient.connect(uri, function (err, client) {
+  if (err) throw err
 
-        await findOneListingByName(client, "infopers");
-        document.getElementById('infoNombre').innerHTML = result['Nombre'];
- 
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
-}
+    app.get('/getInfoPer', (req, res) => {
+        client.db("InfoCurricula")
+        .collection("PersInfo")
+        .findOne({ name: "infopers" })
+        .then(r => res.end(JSON.stringify(r)), e => console.error(e));
+    })
+    app.get('/partOne', (req, res) => {
+        client.db("InfoCurricula")
+        .collection("Skills")
+        .findOne({ name: "SKILLS" })
+        .then(r => res.end(JSON.stringify(r)), e => console.error(e));
+    })
+    app.get('/edu', (req, res) => {
+        client.db("InfoCurricula")
+        .collection("Education")
+        .findOne({ name: "EDUC" })
+        .then(r => res.end(JSON.stringify(r)), e => console.error(e));
+    })
+    app.get('/act', (req, res) => {
+        client.db("InfoCurricula")
+        .collection("Activities")
+        .findOne({ name: "ACTIVITIES" })
+        .then(r => res.end(JSON.stringify(r)), e => console.error(e));
+    })
+})
 
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'index.html'))
 })
 
+app.get('/cv2.jpg', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'cv2.jpg'))
+})
+
+app.get('/front.js', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'front.js'))
+})
+
 app.listen(4000, ()=>{
     console.log("Server runnign on port 4000")
 })
-
-main().catch(console.error);
 
 async function listDatabases(client){
     const databasesList = await client.db().admin().listDatabases();
@@ -65,12 +76,13 @@ async function findOneListingByName(client, nameOfListing) {
         console.log(`Found a listing in the collection with the name '${nameOfListing}':`);
         console.log(result);
         console.log(result['correo']);
-        document.getElementById('infoNombre').innerHTML = result['Nombre'];        
-
+        return result;      
     } else {
         console.log(`No listings found with the name '${nameOfListing}'`);
     }
 };
+
+
 
 
 

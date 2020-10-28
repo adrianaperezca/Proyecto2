@@ -38,63 +38,146 @@
         <div class="row">
             <div class="col-lg-12 text-center upper p-3 mb-2 bg-secondary text-white">
                 <h3 id="infoNombre"></h3>
-                <p>
-                nanyperezcarrillo@hotmail.com
-                <br>
-                +52 66 72 08 05 06
-                <br>
-                Nationality: Mexican
+                <p id="correo">
+                </p>                
+                <p id="cel">
                 </p>
-                <h4>Looking for an internship from January to June 2021</h4>
+                <p id="Nat">
+                </p>
+                <h4 id="String"></h4>
             </div>
         </div>
         <div id="skill" class="row text-left">
-            <h2 style="padding: 10px 0; padding-left: 80px">SKILLS</h2>
+            <h2 id="NAME" style="padding: 10px 0; padding-left: 80px">SKILLS</h2>
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <h4 style="padding-bottom: 5px;">Foreign Languages</h4>
+                <h4 id="P1" style="padding-bottom: 5px;"></h4>
                 <ul>
-                       <li>SPANISH:   Native language</li>
-                       <li>ENGLISH:   Professional</li>
-                       <li>FRENCH:    Intermediate</li>
-                       <li>MANDARIN:  Basic</li>
+                       <li id="FL1"></li>
+                       <li id="FL2"></li>
+                       <li id="FL3"></li>
+                       <li id="FL4"></li>
                 </ul>
             </div>
             <div class="col-lg-4">
-                <h4 style="padding-bottom: 5px;">Programming Languajes</h4>
+                <h4 id="P2" style="padding-bottom: 5px;"></h4>
                   <ul>
-                       <li>C/C++</li>
-                       <li>Assembly</li>
-                       <li>VHDL</li>
-                       <li>LT Spice</li>
+                       <li id="PL1" ></li>
+                       <li id="PL2"></li>
+                       <li id="PL3"></li>
+                       <li id="PL4"></li>
                  </ul>
             </div>
             <div class="col-lg-4">
-                <h4 style="padding-bottom: 5px;">Programs</h4>
+                <h4 id="P3" style="padding-bottom: 5px;"></h4>
                   <ul>
-                       <li>SciLab</li>
-                       <li>MatLab</li>
-                       <li>LTspice</li>
-                       <li>Xilinx</li>
+                       <li id="Pro1"></li>
+                       <li id="Pro2"></li>
+                       <li id="Pro3"></li>
+                       <li id="Pro4"></li>
                  </ul>
             </div>
         </div>
         <div id="edu" class="row text-left">
             <h2 style="padding: 10px 0; padding-left: 80px">EDUCATION</h2>
         </div>
+        <hr>
         <div class="row">
-            <div class="col-lg-12 text-left">
-               <ul>
-                   <li>09/2019-07/2020     <b>ESIEE Paris</b></li>
-                   <p>Exchange student – International Master of Computer Science</p>
-                   <li>08/2016 -12/2020     <b>Instituto Tecnológico y de Estudios Superiores de Monterrey, Campus Monterrey</b></li>
-                   <p>Engineer in Digital Systems and Robotics</p>
-               </ul>
+            <div class="col-lg-6 text-left">
+              <strong id="E1"></strong>
             </div>
+            <div class="col-lg-6 text-left">
+              <ul>
+                  <li id="F1"></li>
+                  <p id="D1"></p>
+              </ul>
+           </div>
         </div>
-    </div>
-  <script src="./script.js" type="text/javascript"> </script>
+        <hr>
+        <div class="row">
+          <div class="col-lg-6 text-left">
+            <strong id="E2"></strong>
+          </div>
+          <div class="col-lg-6 text-left">
+            <ul>
+                <li id="F2"></li>
+                <p id="D2"></p>
+            </ul>
+          </div>
+        </div>
+        <hr>
+
+        <div id="act" class="row text-left">
+          <h2 id="ACT" style="padding: 10px 0; padding-left: 80px"></h2>
+        </div>
+        <hr>
+
+        <div class="row">
+          <div class="col-lg-2 text-left">
+            <strong id="Fecha5"></strong>
+          </div>
+          <div class="col-lg-10">
+            <p id="des5"></p>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row">
+          <div class="col-lg-2 text-left">
+            <strong id="Fecha1"></strong>
+          </div>
+          <div class="col-lg-10">
+            <p id="des1"></p>
+          </div>
+        </div>
+        <hr>
+        
+        <div id="act" class="row text-left">
+          <h5 style="padding: 10px 0; padding-left: 80px"><u id="online"></u></h5>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-2 text-left">
+            <strong id="Fecha2"></strong>
+          </div>
+          <div class="col-lg-10">
+            <ul>
+              <li>
+                <p id="des2"></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-2 text-left">
+            <strong id="Fecha3"></strong>
+          </div>
+          <div class="col-lg-10">
+            <ul>
+              <li>
+                <p id="des3"></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-2 text-left">
+            <strong id="Fecha4"></strong>
+          </div>
+          <div class="col-lg-10">
+            <ul>
+              <li>
+                <p id="des4"></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+  </div>
+
+  <script src="./front.js" type="text/javascript"> </script>
   <script> var app = new Vue({
     el: '#l-for',
     data: {
@@ -102,10 +185,16 @@
             {name: 'PERSONAL INFO', linkz: '#photo'},
             {name: 'SKILLS', linkz: '#skill'},
             {name: 'EDUCATION', linkz: '#edu'},
+            {name: 'ACTIVITIES', linkz: '#act'},
             {name: 'PROJECTS', linkz: '#proj'},
-            {name: 'WORK', linkz: '#wk'},
-            {name: 'ACTIVITIES', linkz: '#act'}
+            {name: 'WORK', linkz: '#wk'}
             ]
+          }, 
+          beforeMount(){
+            getInfoPer();
+            getSkills();
+            getEdu();
+            getAct();
           }
     })  
   </script>
